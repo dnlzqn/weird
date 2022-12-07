@@ -1,4 +1,7 @@
-let zoff=1000000;
+t=1e2,draw=()=>{for(createCanvas(w=windowWidth,h=windowHeight),strokeWeight(.0128),stroke(w),background(0),translate(w/2,h/2),scale(s=50),n=map(mouseX,0,w,-5,5),a=0;2.5>a;a+=4e-4)x=a*t+n,y=2*(sin(x)/tan(t/a))-n,e=3*(noise(cos(x*a))*cos(x)/sin(a)),e2=noise(atan(x))*w/20,circle(sin(e2-y+n)*e,atan(x-n)*e-y,.0041);t+=map(mouseX,0,w,-.035,+.035)}
+
+
+/*let zoff=1000000;
 let mX, mY
 
 function setup() {
@@ -80,6 +83,7 @@ function touchStarted() {
   mX = mouseX;
   mY = mouseY;
 }
+*/
 
 function touchMoved() {
   mX = mouseX;
