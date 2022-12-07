@@ -60,9 +60,9 @@ function draw() {
     circle(sin(e2-y+mm-my)*e, atan(x-my+mm)*e-y,0.0031);    
 
   }
-  zoff += 0.035;
+  //zoff += 0.035;
   
-  //zoff += map(mouseX,0,width,-0.035,+0.035);
+  zoff += map(mouseX,0,width,-0.035,+0.035);
 
 }
 
