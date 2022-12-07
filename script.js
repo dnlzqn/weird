@@ -1,28 +1,69 @@
-let zoff = 0;
-let x, y, e;
-let mX, mY;
+let zoff=1000000;
+let mX, mY
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
-  mX = windowWidth * 0.5;
-  mY = windowHeight * 0.3;
+  mX = windowWidth / 2;
+  mY = windowHeight / 2;
 }
 
 function draw() {
-  smooth();
-  let mm = map(mY, 0, width, 0, 80);
   background(0);
   translate(width / 2, height / 2);
-  strokeWeight(2);
-  for (let a = 0; a < 0.75; a += 0.00012) {
-    stroke(255);
-    x = 20 * a;
-    y = 100 - x * mm;
-    e = a * 50 * tan(zoff);
-    point(cos(x) * y - e, sin(x) * y + e);
+  let mm = map(mX, 0, width, -5, 5);
+  let my = map(mY, 0, height, 10, -10);
+  
+  scale(40);
+
+  for (let a = 0; a < 2.5; a += 0.0004) {
+    stroke(255)
+    strokeWeight(0.0128)
+
+    //let x = cos(a) * sin(a);
+    
+    //let x = tan(a)+a;
+        
+    let x = a*100+mm;
+
+    //let y = (a)/tan(x+zoff)+my;
+    
+    let y = sin(x) / tan(zoff/a)*2-mm;
+
+    //let e = noise(cos(x*a)) * cos(x) / noise(sin(x))*map(mX, 0, width, 2, 4);
+    
+    let e = noise(cos(x*a)) * cos(x) / (sin(a))*3;
+    let e2 = noise(atan(x))*width/20;
+
+    
+    //let e = cos(x) * cos(y) + sin(a);
+    
+    //let e = (cos(x))*2.3;
+    
+    //let f = noise(tan(e))*2
+
+    
+    //let e = noise(cos(x*a)) * cos(y) / noise(sin(a));
+
+
+    //cuadrado con vertices redondeados
+    //point(sin(tan(cos(y))+mm)*e, sin(tan(sin(y))+mm)*e);
+    
+    //point(sin(sin(cos(y))+mm)*e, sin(sin(sin(y))+mm)*e);
+
+
+   //circle(cos(tan(sin(y+my)))/e, (((y-mm)))*a, 0.0031);
+
+
+//    circle(sin(e-y+mm-my)*e, atan(e-my+mm)*e-y,0.0031); 
+    
+    circle(sin(e2-y+mm-my)*e, atan(x-my+mm)*e-y,0.0031);    
+
   }
-  zoff += map(mouseX,0,width,+0.03,-0.03);
+  zoff += 0.035;
+  
+  //zoff += map(mouseX,0,width,-0.035,+0.035);
+
 }
 
 function mousePressed() {
@@ -44,4 +85,8 @@ function touchMoved() {
   mX = mouseX;
   mY = mouseY;
   return false;
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
