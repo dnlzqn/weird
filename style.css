@@ -10,6 +10,7 @@ html, body {
 
 html {	
 	flex-direction: column;
+	user-select: none;
 }
 
 body {
