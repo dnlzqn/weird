@@ -9,11 +9,7 @@ html, body {
 }
 
 html {	
-	flex-direction: column;
-	-webkit-user-select: none;  /* Chrome all / Safari all */
-  -moz-user-select: none;     /* Firefox all */
-  -ms-user-select: none;      /* IE 10+ */
-  user-select: none; 
+	flex-direction: column; 
 }
 
 body {
@@ -36,4 +32,8 @@ canvas {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
 }
